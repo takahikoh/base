@@ -4,9 +4,8 @@ from model import Model
 from sklearn.metrics import roc_auc_score
 from sklearn.model_selection import StratifiedKFold
 from typing import Callable, List, Optional, Tuple, Union
-from util import Logger, Util
-
-logger = Logger()
+from util import logger, Util
+import config
 
 
 class Runner:
@@ -110,7 +109,7 @@ class Runner:
         logger.info(f'{self.run_name} - end training cv - score {np.mean(scores)}')
 
         # 予測結果の保存
-        Util.dump(preds, f'../model/pred/{self.run_name}-cv-train.pkl')
+        Util.dump(preds, f'{config.PRED_DIR}/{self.run_name}-cv-train.pkl')
 
         # 評価結果の保存
         logger.result_scores(self.run_name, scores)
@@ -137,7 +136,7 @@ class Runner:
         pred_avg = np.mean(preds, axis=0)
 
         # 予測結果の保存
-        Util.dump(pred_avg, f'../model/pred/{self.run_name}-cv-test.pkl')
+        Util.dump(pred_avg, f'{config.PRED_DIR}/{self.run_name}-cv-test.pkl')
 
         logger.info(f'{self.run_name} - end prediction cv')
 
@@ -166,7 +165,7 @@ class Runner:
         pred = model.predict(self.test_x)
 
         # 予測結果の保存
-        Util.dump(pred, f'../model/pred/{self.run_name}-all-test.pkl')
+        Util.dump(pred, f'{config.PRED_DIR}/{self.run_name}-all-test.pkl')
 
         logger.info(f'{self.run_name} - end prediction all')
 

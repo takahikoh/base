@@ -5,9 +5,7 @@ from optuna.samplers import TPESampler
 from typing import Callable, List, Dict, Any
 from runner import Runner
 from model import Model
-from util import Logger, Util
-
-logger = Logger()
+from util import logger, Util
 
 class OptunaRunner(Runner):
     def __init__(self,

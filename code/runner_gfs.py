@@ -4,9 +4,7 @@ import pandas as pd
 from model import Model
 from runner import Runner
 from typing import Callable, List, Optional, Tuple, Union
-from util import Logger, Util
-
-logger = Logger()
+from util import logger, Util
 
 class GFSRunner(Runner):
     def evaluate(self, features: List[str]) -> float:

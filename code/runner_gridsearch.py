@@ -4,9 +4,7 @@ from sklearn.model_selection import ParameterGrid
 from typing import Callable, List, Dict, Any
 from runner import Runner
 from model import Model
-from util import Logger, Util
-
-logger = Logger()
+from util import logger, Util
 
 class GridSearchRunner(Runner):
     def __init__(self,

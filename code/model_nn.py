@@ -1,7 +1,7 @@
 import os
 import numpy as np
 import random
-import tensorflow as tf 
+import tensorflow as tf
 from tensorflow.keras.layers import Dense, Dropout, BatchNormalization, PReLU, Input, Masking
 from tensorflow.keras.models import Model as KerasModel
 from tensorflow.keras.optimizers import Adam
@@ -12,6 +12,7 @@ from sklearn.impute import SimpleImputer
 from sklearn.pipeline import Pipeline
 from model import Model
 from util import Util
+import config
 
 
 def set_seed(seed=42):
@@ -22,6 +23,7 @@ def set_seed(seed=42):
     
 
 class ModelNN(Model):
+    FILE_EXT = '.keras'
     def __init__(self, run_fold_name: str, params: dict):
         super().__init__(run_fold_name, params)
 
@@ -90,16 +92,16 @@ class ModelNN(Model):
 
     
     def save_model(self):
-        model_path = os.path.join('../model/model', f'{self.run_fold_name}.keras')
-        pipeline_path = os.path.join('../model/model', f'{self.run_fold_name}-pipeline.pkl')
+        model_path = self._model_path()
+        pipeline_path = os.path.join(config.MODEL_DIR, f'{self.run_fold_name}-pipeline.pkl')
         os.makedirs(os.path.dirname(model_path), exist_ok=True)
-        self.model.save(model_path)  
+        self.model.save(model_path)
         Util.dump(self.pipeline, pipeline_path)
 
         
     def load_model(self):
-        model_path = os.path.join('../model/model', f'{self.run_fold_name}.keras')
-        pipeline_path = os.path.join('../model/model', f'{self.run_fold_name}-pipeline.pkl')
+        model_path = self._model_path()
+        pipeline_path = os.path.join(config.MODEL_DIR, f'{self.run_fold_name}-pipeline.pkl')
         self.model = tf.keras.models.load_model(model_path)
         self.pipeline = Util.load(pipeline_path)
 
