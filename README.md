@@ -35,4 +35,4 @@ runner.run_predict_cv()
 ```
 4. 予測結果は `submission/` 以下に保存されます。`Submission.create_submission('lgb-cv')` を実行すると Kaggle 提出用の CSV が得られます。
 5. `OptunaRunner` や `GFSRunner` を利用することでハイパーパラメータ探索や特徴量選択も行えます。
-6. コマンドラインから学習・推論を実行する場合は `python code/main.py --model lgb --run-name lgb` のように実行します。
+6. コマンドラインから学習・推論を実行する場合は `python code-analysis/main.py --model lgb --run-name lgb` のように実行します。

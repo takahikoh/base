@@ -1,16 +1,19 @@
 import argparse
+from pathlib import Path
 import pandas as pd
-from util import Submission
-from runner import Runner
-from model_lgb import ModelLGB
-from model_xgb import ModelXGB
-from model_cb import ModelCB
-from model_nn import ModelNN
+from code.util import Submission
+from code.runner import Runner
+from code.model_lgb import ModelLGB
+from code.model_xgb import ModelXGB
+from code.model_cb import ModelCB
+from code.model_nn import ModelNN
+
+ROOT_DIR = Path(__file__).resolve().parent.parent
 
 
 def load_data(target: str):
-    train = pd.read_csv('../input/train.csv')
-    test = pd.read_csv('../input/test.csv')
+    train = pd.read_csv(ROOT_DIR / 'input/train.csv')
+    test = pd.read_csv(ROOT_DIR / 'input/test.csv')
     y = train[target]
     train = train.drop(columns=[target])
     full = pd.concat([train, test], axis=0)
