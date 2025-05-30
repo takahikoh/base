@@ -24,7 +24,7 @@ class GridSearchRunner(Runner):
         内部で self.params を更新し、そのままRunnnerクラスと同様に実行できます。
         """
         logger.info(f'{self.run_name} - start grid search')
-        best_score = float('inf')
+        best_score = float('-inf')
         best_params = {}
 
         for param in ParameterGrid(self.param_grid):
@@ -38,7 +38,7 @@ class GridSearchRunner(Runner):
                 scores.append(score)
 
             mean_score: float = np.mean(scores)
-            if mean_score < best_score:
+            if mean_score > best_score:
                 best_score = mean_score
                 best_params = param
 
