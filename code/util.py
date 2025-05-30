@@ -66,7 +66,7 @@ class Submission:
 
     @classmethod
     def create_submission(cls, run_name):
-        submission = pd.read_csv('../input/original/sample_submission.csv')
+        submission = pd.read_csv('../input/submission.csv')
         pred = Util.load(f'{config.PRED_DIR}/{run_name}-test.pkl')
         submission['事故フラグ'] = pd.Series(pred)
         submission.to_csv(f'../submission/{run_name}.csv', index=False)
