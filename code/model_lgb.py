@@ -47,11 +47,4 @@ class ModelLGB(Model):
     def predict(self, te_x):
         return self.model.predict(te_x, num_iteration=self.model.best_iteration)
     
-    def save_model(self):
-        model_path = os.path.join('../model/model', f'{self.run_fold_name}.model')
-        os.makedirs(os.path.dirname(model_path), exist_ok=True)
-        Util.dump(self.model, model_path)
-        
-    def load_model(self):
-        model_path = os.path.join('../model/model', f'{self.run_fold_name}.model')
-        self.model = Util.load(model_path)
+    # save_model and load_model are inherited from Model

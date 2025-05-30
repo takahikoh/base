@@ -1,7 +1,11 @@
+import os
 import pandas as pd
 import numpy as np
 from abc import ABCMeta, abstractmethod
 from typing import Optional
+
+from util import Util
+import config
 
 
 class Model(metaclass=ABCMeta):
@@ -38,12 +42,18 @@ class Model(metaclass=ABCMeta):
         """
         pass
 
-    @abstractmethod
+    FILE_EXT = '.model'
+
+    def _model_path(self) -> str:
+        return os.path.join(config.MODEL_DIR, f'{self.run_fold_name}{self.FILE_EXT}')
+
     def save_model(self) -> None:
         """モデルの保存を行う"""
-        pass
+        model_path = self._model_path()
+        os.makedirs(os.path.dirname(model_path), exist_ok=True)
+        Util.dump(self.model, model_path)
 
-    @abstractmethod
     def load_model(self) -> None:
         """モデルの読み込みを行う"""
-        pass
+        model_path = self._model_path()
+        self.model = Util.load(model_path)
