@@ -4,8 +4,7 @@ import os
 import numpy as np
 import pandas as pd
 import joblib
-
-from . import config
+import config
 
 
 class Util:
