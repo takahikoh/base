@@ -1,4 +1,3 @@
-# base
 ## このリポジトリについて
 - ベース: ghmagazine/kagglebook (ch04-model-interface)
 - ライセンス: BSD-3-Clause（本リポジトリも同一）
