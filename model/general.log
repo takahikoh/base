@@ -18,3 +18,23 @@
 [2025-05-26 06:50:23] - lgb - start prediction fold:3
 [2025-05-26 06:50:23] - lgb - end prediction fold:3
 [2025-05-26 06:50:23] - lgb - end prediction cv
+[2025-06-05 14:32:40] - lgb - start training cv
+[2025-06-05 14:32:40] - lgb fold 0 - start training
+[2025-06-05 14:32:42] - lgb fold 0 - end training - score 0.9140238704177324
+[2025-06-05 14:32:42] - lgb fold 1 - start training
+[2025-06-05 14:32:43] - lgb fold 1 - end training - score 0.8758275335257172
+[2025-06-05 14:32:43] - lgb fold 2 - start training
+[2025-06-05 14:32:43] - lgb fold 2 - end training - score 0.848115769818367
+[2025-06-05 14:32:43] - lgb fold 3 - start training
+[2025-06-05 14:32:44] - lgb fold 3 - end training - score 0.8929154143409188
+[2025-06-05 14:32:44] - lgb - end training cv - score 0.8827206470256838
+[2025-06-05 14:32:44] - lgb - start prediction cv
+[2025-06-05 14:32:44] - lgb - start prediction fold:0
+[2025-06-05 14:32:44] - lgb - end prediction fold:0
+[2025-06-05 14:32:44] - lgb - start prediction fold:1
+[2025-06-05 14:32:44] - lgb - end prediction fold:1
+[2025-06-05 14:32:44] - lgb - start prediction fold:2
+[2025-06-05 14:32:44] - lgb - end prediction fold:2
+[2025-06-05 14:32:44] - lgb - start prediction fold:3
+[2025-06-05 14:32:44] - lgb - end prediction fold:3
+[2025-06-05 14:32:44] - lgb - end prediction cv
