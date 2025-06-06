@@ -12,3 +12,4 @@ ipywidgets
 natsort
 joblib
 matplotlib
+optuna
