@@ -397,6 +397,6 @@ class easyplot:
         for idx, title in enumerate(tab_titles):
             tab.set_title(idx, title)
         display(tab)
-        return tab
+        
     
   
